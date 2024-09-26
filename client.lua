@@ -12,14 +12,11 @@ currentStationName = ""
 
 -- Event for using the headphone item
 RegisterNetEvent('qb-core:useHeadphone', function()
-    print("[DEBUG CLIENT] Headphone item used - Triggering headphone menu")
-    -- Open the headphone menu
     TriggerEvent('qb-headphones:openMenu')
 end)
 
 -- Headphone Menu
 RegisterNetEvent('qb-headphones:openMenu', function()
-    print("[DEBUG] Opening headphone menu")
     local elements = {
         {
             header = "🎧 Headphone Menu",
@@ -48,11 +45,9 @@ RegisterNetEvent('qb-headphones:openMenu', function()
         },
         {
             header = "Current Station: " .. currentStationName,
-            txt = "Now Playing: " 
+            txt = "Playing Music!" 
         },
     }
-
-    print("[DEBUG] Elements for menu created, ready to open qb-menu")
     
     -- Open the menu using qb-menu
     exports['qb-menu']:openMenu(elements)
@@ -62,11 +57,9 @@ end)
 
 -- Turn On Headphones
 RegisterNetEvent('qb-headphones:turnOn', function()
-    print("[DEBUG] Turn On option selected")
     local playerPed = PlayerPedId()
 
-    -- Put on the headphones (example model, adjust as needed)
-    SetPedPropIndex(playerPed, 0, 15, 1, true) -- Headphones on component 1 (Hats)
+    SetPedPropIndex(playerPed, 0, 15, 1, true) -- Headphones
 
     -- Enable mobile radio outside the vehicle
     SetMobileRadioEnabledDuringGameplay(true)
@@ -80,7 +73,6 @@ end)
 
 -- Turn Off Headphones
 RegisterNetEvent('qb-headphones:turnOff', function()
-    print("[DEBUG] Turn Off option selected")
     local playerPed = PlayerPedId()
 
     -- Remove the headphones
@@ -94,7 +86,6 @@ end)
 
 -- Change Radio Station
 RegisterNetEvent('qb-headphones:changeStation', function()
-    print("[DEBUG] Change Station option selected")
     local elements = {}
 
     for _, station in ipairs(Config.RadioStations) do
@@ -108,13 +99,11 @@ RegisterNetEvent('qb-headphones:changeStation', function()
         })
     end
 
-    print("[DEBUG] Radio stations menu created, ready to open qb-menu")
     exports['qb-menu']:openMenu(elements)
 end)
 
 -- Update current station when changing the station
 RegisterNetEvent('qb-headphones:setStation', function(stationName)
-    print("[DEBUG] Setting radio station to:", stationName)
     SetRadioToStationName(stationName)
 
     -- Find and set the current station name based on the station name
