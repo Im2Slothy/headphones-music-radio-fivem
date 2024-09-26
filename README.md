@@ -24,5 +24,10 @@ QB Core Script to use "headphones" to listen to music being played on GTA Radios
         {name = 'headphone',     price = 2,   amount = 50,    info = {}, type = 'item'},
 ```
 
+# Script Showcase
+https://youtu.be/aVgzd8ua9xI
+
 Enjoy, if there are issues problems, or anything like that join my discord and let me know so I can fix it!
 Discord: https://discord.gg/RQBhmWEzTx
+
+
